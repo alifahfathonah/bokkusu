@@ -6,23 +6,53 @@
 <head>
 	<title></title>
 </head>
+<style type="text/css">
+	body{background-color:;}
+</style>
 <body>
 
-	<form action="/auth/postlogin" method="POST">
+<div class="container">
+
+<div class="row -flex justify-content-center">
+	<div class="col-md-7">
+	<div class="card mt-3">
+	<div class="card-body">
+		<form action="/auth/postlogin" method="POST">
+		@csrf
+		<div class="form-group">
 		<label>
 			Email
 		</label>
 		<br>
-		<input type="mail" name="email">
+		<input class="form-control" type="mail" name="email">
+		@error('email')
+		<span>{{$message}}</span>
+		@enderror
 		<br>
+		</div>
+		<div class="form-group">
 		<label>
 			Password
 		</label>
 		<br>
-		<input type="password" name="password">
+		<input class="form-control" type="password" name="password">
+		@error('password')
+		<span>{{$message}}</span>
+		@enderror
 		<br>
-		<input type="submit" name="login" value="login">
-	</form>
+		</div>
+		<input class="btn btn-success" type="submit" name="login" value="login">
+		</form>	
+		<br>
+		Don't have a account? <a href="#">Sign Up</a>
+	</div>
+</div>
+		
+	</div>
+</div>
+
+
+</div>
 
 </body>
 </html>

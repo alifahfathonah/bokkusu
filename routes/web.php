@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("/auth/login","AuthController@login");
+Route::get("/auth/login","AuthController@login")->name("login");
 Route::post("/auth/postlogin","AuthController@postlogin");
 Route::get("/dashboard","DashboardController@index");
 Route::get("/dashboard/user","UserController@index");
@@ -25,3 +25,4 @@ Route::post("/dashboard/user/store","UserController@store");
 Route::post("/dashboard/user/update","UserController@update");
 Route::get("/dashboard/user/edit/{id}","UserController@edit");
 Route::get("/dashboard/user/delete/{id}","UserController@destroy");
+Route::get("/auth/dashboard/logout","AuthController@logout");

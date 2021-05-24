@@ -63,12 +63,13 @@ class AuthController extends Controller
             // "g-recaptcha-response" => "required|captcha"
             ]);
     
-        if(!Auth::attempt(["email" => $request->email,"password" => $request->password]));
+        if(!Auth::attempt(["email" => $request->email,"password" => $request->password]))
         {
             return redirect("/auth/login");
         }else{
             return redirect("/dashboard");
         }
+            
     }
 
     /**
@@ -100,8 +101,14 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function logout(Request $request)
     {
-        //
+    Auth::logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect("/auth/login");
     }
 }

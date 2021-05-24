@@ -22,7 +22,7 @@
 	
 	<ol>
 		@foreach($user as $usr)
-		<li>{{$usr->name}} - {{$usr->username}}} - {{$usr->email}} -> {{$usr->sex}}
+		<li>{{$usr->name}} - {{$usr->username}} - {{$usr->email}} -> {{$usr->sex}}
 			<a href="/dashboard/user/delete/{{$usr->id}}">delete</a> - <a href="/dashboard/user/edit/{{$usr->id}}">edit</a></li>
 		@endforeach
 	</ol>
