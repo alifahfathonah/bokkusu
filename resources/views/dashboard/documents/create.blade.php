@@ -1,15 +1,46 @@
-<!DOCTYPE html>
-<html>
-    <!--link library-->
-    <meta name="viewport" content="device=width-device, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--End Links-->
-<head>
-	<title>Create Data Documents - Bokkusu</title>
-</head>
-<body>
-<div class="container">
-	
+@extends('dashboard.templates.master')
+
+@section('title','Create Documents')
+
+@section('content')
+
+<h1>Create Documents - Bokkusu</h1>
+
+<br>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/dashboard/documents/store" class="form" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+            <label for="name">
+                Name:
+            </label>
+                <input name="name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="name">
+                Document file
+            </label>
+                <input name="doc" type="file" class="form-control">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">
+            SUBMIT
+            </button>
+            <a href="/dashboard/submission" class="btn btn-danger">
+            CANCEL
+            </a>
+        </form>
+    </div>
 </div>
-</body>
-</html>
+
+@section('script')
+<script src="../../js/scripts.js"></script>
+<script>
+    $('.dropdown-toggle').dropdown();
+</script>
+@endsection
+
+
+@endsection

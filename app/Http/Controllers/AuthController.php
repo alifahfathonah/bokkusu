@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class AuthController extends Controller
 {
+    /* ACCOUNT
+    u : tribudi123@gmail.com , p : tri123 (Unit Pelaksana)
+    u : awebsite84@gmail.com , p : admin123 (Unit Pengelola)
+    u : .... , p : .... (Unit Legal)
+    u : .... , p : .... (Pimpinan)
+    */
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +45,24 @@ class AuthController extends Controller
      */
     public function postregister(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required|min:3|max:60",
+            "email" => "required",
+            "sex" => "required",
+            "institution" => "required|min:10",
+            "username" => "required|min:5|max:10",
+            "password" => "required|min:5|max:60"]);
+
+        DB::table("users")->insert([
+            "name" => $request->name,
+            "email" => $request->email,
+            "sex" => $request->sex,
+            "institution" => $request->institution,
+            "username" => $request->username,
+            "password" => Hash::make($request->password),
+            "role" => 1]);
+
+        return redirect("/auth/login");
     }
 
     /**
@@ -59,8 +85,7 @@ class AuthController extends Controller
     {
         $request->validate([
             "email" => "required",
-            "password" => "required",
-            // "g-recaptcha-response" => "required|captcha"
+            "password" => "required",  
             ]);
     
         if(!Auth::attempt(["email" => $request->email,"password" => $request->password]))

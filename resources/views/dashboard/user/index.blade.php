@@ -1,33 +1,72 @@
-<!DOCTYPE html>
-<html>
-    <!--link library-->
-    <meta name="viewport" content="device=width-device, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-<head>
-	<title>User - Bokkusu</title>
-</head>
-<body>
+@extends('dashboard.templates.master')
 
-<div class="container">
-<h1>
-		Data User
-</h1>
+@section('title','User')
 
-<a class="btn btn-primary" href="/dashboard/user/create">
+@section('content')
+
+<h1>User - Bokkusu</h1>
+
+<a class="btn btn-primary mb-3" href="/dashboard/user/create">
 	Create User
 </a>
 
 <br>
-	
-	<ol>
+
+<table id="table_user">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Institution</th>
+			<th>Gender</th>
+			<th>Role</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
 		@foreach($user as $usr)
-		<li>{{$usr->name}} - {{$usr->username}} - {{$usr->email}} -> {{$usr->sex}}
-			<a href="/dashboard/user/delete/{{$usr->id}}">delete</a> - <a href="/dashboard/user/edit/{{$usr->id}}">edit</a></li>
+		<tr>
+			<td>{{$usr->name}}</td>
+			<td>{{$usr->username}}</td>
+			<td>{{$usr->email}}</td>
+			<td>{{$usr->institution}}</td>
+			<td>{{$usr->sex}}</td>
+			<td>
+			@if($usr->role == 1)
+			Unit Pelaksana
+			@elseif($usr->role == 2)
+			Unit Pengelola
+			@elseif($usr->role == 3)
+			Unit Legal
+			@elseif($usr->role == 4)
+			Pimpinan
+			@endif
+			</td>
+			<td>
+				<a href="/dashboard/user/delete/{{$usr->id}}">
+				Delete</a>
+				&nbsp;&nbsp;
+				<a href="/dashboard/user/edit/{{$usr->id}}">
+				Edit</a>
+			</td>
+		</tr>
 		@endforeach
-	</ol>
+	</tbody>
+</table>
 
-</div>
+@section('script')
+<script src="../../js/scripts.js"></script>
+<script src="../../datatables.min.js"></script>
+        <script>
+             $(document).ready( function () {
+                $('#table_user').DataTable();
+            } );
+        </script>
+<script>
+    $('.dropdown-toggle').dropdown();
+</script>
+@endsection
 
-</body>
-</html>
+
+@endsection

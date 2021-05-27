@@ -1,17 +1,35 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\UploadedFile;
 
-class DocumentsController extends Controller
+class SubmissionController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
+/*
+Detail Mitra kerjasama
+
+nama mitra
+jabatan mitra dalam instansi
+instansi mitra kerjasama
+jenis Instansi
+
+Detail indormasi kerjasama
+
+jenis dokumen kerjasama
+perihal kerjasama
+lama kegiatan kerjasama
+unit pelaksanaan kerjasama
+deskripsi kerjasama
+rencana implementasi kerjasama
+dokumen kerjasama (proposal/surat penawaran) drop at here
+
+rgba 086499
+
+*/
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +37,8 @@ class DocumentsController extends Controller
      */
     public function index()
     {
-     return view("dashboard.documents.index");
+        $data = DB::table("pengajuan")->get();
+        return view("dashboard.submission.index",["submission" => $data]);
     }
 
     /**
@@ -29,7 +48,7 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        return view("dashboard.documents.create");
+        return view("dashboard.submission.create");
     }
 
     /**
@@ -38,28 +57,27 @@ class DocumentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        $request->validate([
-            "name" => "required|min:5",
-            "doc" => "required|mimes:pdf,doc,docx"
+        $r->validate([
+            "jenis_dokumen" => "required",
+            "perihal" => "required",
+            "durasi" => "required",
+            "unit" => "required",
+            "deskripsi" => "required",
+            "implementasi" => "required"
         ]);
 
-        $files = $request->file('doc');
-        $files->getClientOriginalExtension();
-        $files->getMimeType();
-        $request->doc->move(public_path("../../file"),$files->getClientOriginalName());
-
-        // dd($files);
-
-        DB::table('documents')->insert([
-            "name" => $request->name,
-            "doc" => $files,
-            "ext" => $request->doc->extension(),
-            "status" => 3
+        DB::table("pengajuan")->insert([
+            "jenis_dokumen" => $r->jenis_dokumen,
+            "perihal" => $r->perihal,
+            "durasi" => $r->durasi,
+            "unit_pelaksana" => $r->unit,
+            "deskripsi" => $r->deskripsi,
+            "rencana_implementasi" => $r->implementasi
         ]);
 
-        return redirect("/dashboard/documents");
+        return redirect("/dashboard/submission");
     }
 
     /**
@@ -91,7 +109,7 @@ class DocumentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
     }
@@ -104,6 +122,7 @@ class DocumentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table("pengajuan")->where("id",$id)->delete();
+        return redirect("/dashboard/submission");
     }
 }

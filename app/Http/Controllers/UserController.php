@@ -47,6 +47,7 @@ class UserController extends Controller
             "name" => "required|min:3|max:60",
             "email" => "required",
             "sex" => "required",
+            "role" => "required",
             "institution" => "required|min:10",
             "username" => "required|min:5|max:10",
             "password" => "required|min:5|max:60"]);
@@ -57,7 +58,8 @@ class UserController extends Controller
             "sex" => $request->sex,
             "institution" => $request->institution,
             "username" => $request->username,
-            "password" => Hash::make($request->password)]);
+            "password" => Hash::make($request->password),
+            "role" => $request->role]);
 
         return redirect("/dashboard/user");
     }
@@ -70,7 +72,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user_data = DB::table("users")->where("id",$request->id)->get();
+        $user_data = DB::table("users")->where("id",$id)->get();
         return view("dashboard.user.detail",["user" => $user_data]);
     }
 
@@ -100,14 +102,17 @@ class UserController extends Controller
             "email" => "required",
             "sex" => "required",
             "institution" => "required|min:20",
+            "role" => "required",
             "username" => "required|min:5|max:20"]);
+            
 
         DB::table("users")->where("id",$request->id)->update([
             "name" => $request->name,
             "email" => $request->email,
             "sex" => $request->sex,
             "institution" => $request->institution,
-            "username" => $request->username]);
+            "username" => $request->username,
+            "role" => $request->role]);
 
         return redirect("/dashboard/user");
     }
@@ -124,3 +129,4 @@ class UserController extends Controller
         return redirect("/dashboard/user");
     }
 }
+/*END CODE*/

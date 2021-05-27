@@ -1,17 +1,48 @@
-<!DOCTYPE html>
-<html>
-    <!--link library-->
-    <meta name="viewport" content="device=width-device, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-<head>
-	<title>Documents - Bokkusu</title>
-</head>
-<body>
+@extends('dashboard.templates.master')
 
-<div class="container">
-	
-</div>
+@section('title','Documents')
 
-</body>
-</html>
+@section('content')
+
+<h1>Documents - Bokkusu</h1>
+
+<a class="btn btn-primary mb-3" href="/dashboard/documents/create">
+    Create Document
+</a>
+
+<br>
+
+<table id="table_documents" class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Extension</th>
+                                <th>File</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+ </table>
+
+@section('script')
+<script src="../../js/scripts.js"></script>
+<script src="../../datatables.min.js"></script>
+        <script>
+             $(document).ready( function () {
+                $('#table_documents').DataTable();
+            } );
+        </script>
+<script>
+    $('.dropdown-toggle').dropdown();
+</script>
+@endsection
+
+
+@endsection

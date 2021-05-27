@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <!--link library-->
-    <meta name="viewport" content="device=width-device, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-<head>
-	<title>Create User - Bokkusu</title>
-</head>
-<body>
+@extends('dashboard.templates.master')
 
-<div class="container">
-	<div class="card">
-		<h1>Edit data user</h1>
+@section('title','Edit User')
+
+@section('content')
+
+
+<h1>Edit data user</h1>
+
+<div class="card">
 		<div class="card-body">
 			@foreach($user as $usr)
-			<form action="/dashboard/user/update" method="POST">
+			<form class="form" action="/dashboard/user/update" method="POST">
 				@csrf
-				<input type="hidden" name="id" value="{{$usr->id}}">
+				<input class="form-control" type="hidden" name="id" value="{{$usr->id}}">
 				<div class="form-group">
 					<label>
 						Username
@@ -55,10 +51,19 @@
 				</div>
 				<div class="form-group">
 					<label>
-						Sex
+						Gender
 					</label>
 					<input type="text" class="form-control" name="sex" value="{{$usr->sex}}">
 					@error('sex')
+					<span class="text-danger">{{$message}}</span>
+					@enderror
+				</div>
+				<div class="form-group">
+					<label>
+						Role
+					</label>
+					<input type="text" class="form-control" name="sex" value="{{$usr->role}}">
+					@error('role')
 					<span class="text-danger">{{$message}}</span>
 					@enderror
 				</div>
@@ -67,8 +72,10 @@
 			</form>
 			@endforeach
 		</div>
-	</div>
 </div>
 
-</body>
-</html>
+@section('script')
+<script src="../../js/scripts.js"></script>
+@endsection
+
+@endsection

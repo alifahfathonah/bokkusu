@@ -3,15 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\UploadedFile;
 
-class DocumentsController extends Controller
+class TrackingController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +13,7 @@ class DocumentsController extends Controller
      */
     public function index()
     {
-     return view("dashboard.documents.index");
+        return view("dashboard.tracking.index");
     }
 
     /**
@@ -27,9 +21,9 @@ class DocumentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function result()
     {
-        return view("dashboard.documents.create");
+        return view("dashboard.tracking.result");
     }
 
     /**
@@ -40,26 +34,7 @@ class DocumentsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            "name" => "required|min:5",
-            "doc" => "required|mimes:pdf,doc,docx"
-        ]);
-
-        $files = $request->file('doc');
-        $files->getClientOriginalExtension();
-        $files->getMimeType();
-        $request->doc->move(public_path("../../file"),$files->getClientOriginalName());
-
-        // dd($files);
-
-        DB::table('documents')->insert([
-            "name" => $request->name,
-            "doc" => $files,
-            "ext" => $request->doc->extension(),
-            "status" => 3
-        ]);
-
-        return redirect("/dashboard/documents");
+        //
     }
 
     /**

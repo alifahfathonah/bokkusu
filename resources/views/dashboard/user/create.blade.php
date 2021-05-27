@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <!--link library-->
-    <meta name="viewport" content="device=width-device, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-<head>
-	<title>Create User - Bokkusu</title>
-</head>
-<body>
+@extends('dashboard.templates.master')
 
-<div class="container">
-	<div class="card">
-		<h1>Create user data</h1>
+@section('title','Create User')
+
+@section('content')
+
+	<div class="card mt-3">
+		<div class="card-header">
+			<h1>Create user data</h1>
+		</div>
 		<div class="card-body">
 			<form action="/dashboard/user/store" method="POST">
 				@csrf
@@ -19,7 +15,7 @@
 					<label>
 						Username
 					</label>
-					<input type="text" class="form-control" name="username">
+					<input type="text" class="form-control" name="username" value="{{ old('username')}}">
 					@error('username')
 					<span class="text-danger">{{$message}}</span>
 					@enderror
@@ -28,7 +24,7 @@
 					<label>
 						Name
 					</label>
-					<input type="text" class="form-control" name="name">
+					<input type="text" class="form-control" name="name" value="{{ old('name') }}">
 					@error('name')
 					<span class="text-danger">{{$message}}</span>
 					@enderror
@@ -37,7 +33,7 @@
 					<label>
 						Email
 					</label>
-					<input type="text" class="form-control" name="email">
+					<input type="text" class="form-control" name="email" value="{{ old('email') }}">
 					@error('email')
 					<span class="text-danger">{{$message}}</span>
 					@enderror
@@ -46,16 +42,16 @@
 					<label>
 						Institution
 					</label>
-					<input type="text" class="form-control" name="institution">
+					<input type="text" class="form-control" name="institution" value="{{ old('institution') }}">
 					@error('institution')
 					<span class="text-danger">{{$message}}</span>
 					@enderror
 				</div>
 				<div class="form-group">
 					<label>
-						Sex
+						Gender
 					</label>
-					<input type="text" class="form-control" name="sex">
+					<input type="text" class="form-control" name="sex" value="{{ old('sex') }}">
 					@error('sex')
 					<span class="text-danger">{{$message}}</span>
 					@enderror
@@ -64,17 +60,36 @@
 					<label>
 						Password
 					</label>
-					<input type="password" class="form-control" name="password">
+					<input type="password" class="form-control" name="password" value="{{old('password') }}">
 					@error('password')
 					<span class="text-danger">{{$message}}</span>
 					@enderror
 				</div>
+				<div class="form-group">
+					<label>
+						Role (1 - 4)
+					</label>
+					<input type="password" class="form-control" name="role" value="{{old('role') }}">
+					@error('role')
+					<span class="text-danger">{{$message}}</span>
+					@enderror
+				</div>
 				<br>
-				<input type="submit" class="btn btn-sm btn-success" name="add" value="add">
+				<input type="submit" class="btn btn-success" name="add" value="ADD USER">
+				&nbsp;&nbsp;
+				<a class="btn btn-danger" href="/dashboard/user">
+				CANCEL
+				</a>
 			</form>
 		</div>
 	</div>
-</div>
 
-</body>
-</html>
+@section('script')
+<script src="../../js/scripts.js"></script>
+<script>
+    $('.dropdown-toggle').dropdown();
+</script>
+@endsection
+
+
+@endsection

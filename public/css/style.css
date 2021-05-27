@@ -1,0 +1,31 @@
+*{
+  font-family: montserrat;
+}
+
+.container{
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.homepage{
+  width: 100%;
+  height: 100%;
+  background: url(homepage1.png) no-repeat center;
+  background-size: 100% 100%;
+}
+
+img{
+  width: 100%;
+}
+.about-us h1,p{
+  text-align: center;
+
+}
+
+.step h1{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: right;
+  margin-right: 40px;
+  border-right: 3px solid #086499;
+}
