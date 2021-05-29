@@ -6,19 +6,24 @@
 
 <h1>Tracking - Bokkusu</h1>
 
+<div class="row">
+<div class="col-md-6">
 <div class="card">
     <div class="card-body">
-        <form action="#" method="GET">
+        <form action="/dashboard/tracking/search" method="GET">
             @csrf
-            <div class="form-group">
-                <label for="search">
-                    Search:
-                </label>
-                <input type="search" name="search" placeholder="Search..." autocomplete="off">
-                <input type="submit" class="btn btn-success" value="SEARCH">
-            </div>
+                    <div class="form-group">
+                    <label for="search">
+                        <b>Search:</b>
+                    </label>
+                    <input class="form-control" type="search" name="search" placeholder="Search..." autocomplete="off">
+                    <br>
+                    <input type="submit" class="btn btn-success" value="SEARCH">
+                    </div>
         </form>
     </div>
+</div>
+</div>
 </div>
 
 <br>

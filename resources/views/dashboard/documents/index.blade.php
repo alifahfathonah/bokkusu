@@ -6,28 +6,52 @@
 
 <h1>Documents - Bokkusu</h1>
 
-<a class="btn btn-primary mb-3" href="/dashboard/documents/create">
+<a class="btn btn-success mb-3" href="/dashboard/documents/create">
     Create Document
 </a>
 
 <br>
 
-<table id="table_documents" class="table">
+<table class="table table-striped table-bordered" id="table_documents" class="table">
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Extension</th>
                                 <th>File</th>
+                                <th>Status</th>
                                 <th>action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data as $dt)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$dt->name}}</td>
+                                <td>{{$dt->doc}}</td>
+                                <td>
+                                @if($dt->status == 1)
+                                <span class="badge bg-success">
+                                Disetujui
+                                </span>
+                                @elseif($dt->status == 2)
+                                <span class="badge bg-warning">
+                                Dalam Proses Review
+                                </span>
+                                @elseif($dt->status == 3)
+                                <span class="badge bg-danger">
+                                Ditolak
+                                </span>
+                                @endif
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger" href="/dashboard/documents/delete/{{$dt->id}}">
+                                    Delete
+                                    </a>
+                                    &nbsp;&nbsp;
+                                    <a class="btn btn-sm btn-info" href="/dashboard/documents/review/{{$dt->id}}">
+                                    Review
+                                    </a>
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
  </table>
 

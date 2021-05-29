@@ -4,15 +4,16 @@
 
 @section('content')
 
-<a href="/dashboard/submission/create" class="btn btn-primary mt-3">
+<a href="/dashboard/submission/create" class="btn btn-info mt-3">
 Create
 </a>
+&nbsp;
 
 <h1>Submission - Bokkusu</h1>
 
 <br>
 
-<table id="table_submission">
+<table class="table table-striped table-bordered" id="table_submission">
     <thead>
         <tr>
             <th>Jenis Dokumen</th>
@@ -20,6 +21,7 @@ Create
             <th>Durasi</th>
             <th>Unit Pelaksana</th>
             <th>Deskripsi</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -32,7 +34,24 @@ Create
             <td>{{$sb->unit_pelaksana}}</td>
             <td>{{$sb->deskripsi}}</td>
             <td>
-            <a class="btn btn-sm btn-info" href="#"><i class="fa fa-pencil-square"></i>edit</a>
+                @if($sb->status == 1)
+                <span class="badge bg-success">
+                Disetujui
+                </span>
+                @elseif($sb->status == 2)
+                <span class="badge bg-warning">
+                Dalam Proses Review
+                </span>
+                @elseif($sb->status == 3)
+                <span class="badge bg-danger">
+                Ditolak
+                </span>
+                @endif
+            </td>
+            <td>
+            <a class="btn btn-sm btn-primary" href="/dashboard/submission/review/{{$sb->id}}">review</a>
+            &nbsp;&nbsp;
+            <a class="btn btn-sm btn-info" href="/dashboard/submission/edit/{{$sb->id}}"><i class="fas fa-pencil"></i>edit</a>
             &nbsp;&nbsp;
             <a class="btn btn-sm btn-danger" href="/dashboard/submission/delete/{{$sb->id}}"><i class="fa fa-trash-alt"></i></a>
             </td>

@@ -19,7 +19,8 @@ class DocumentsController extends Controller
      */
     public function index()
     {
-     return view("dashboard.documents.index");
+    $data = DB::table("documents")->get();
+     return view("dashboard.documents.index",["data" => $data]);
     }
 
     /**
@@ -45,18 +46,14 @@ class DocumentsController extends Controller
             "doc" => "required|mimes:pdf,doc,docx"
         ]);
 
-        $files = $request->file('doc');
-        $files->getClientOriginalExtension();
-        $files->getMimeType();
-        $request->doc->move(public_path("../../file"),$files->getClientOriginalName());
+        $files = $request->file('doc')->store("file","public");
 
         // dd($files);
 
         DB::table('documents')->insert([
             "name" => $request->name,
             "doc" => $files,
-            "ext" => $request->doc->extension(),
-            "status" => 3
+            "status" => 2
         ]);
 
         return redirect("/dashboard/documents");
@@ -70,7 +67,30 @@ class DocumentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table("documents")->where("id",$id)->get();
+        return view("dashboard.documents.review",["data" => $data]);
+    }
+
+    public function approved(Request $request)
+    {
+       DB::table("documents")->where("id",$request->id)->update(
+           [
+           "status" => 1
+       ]);
+
+       return redirect("/dashboard/documents");
+
+    }
+
+    public function disapproved(Request $request)
+    {
+       DB::table("documents")->where("id",$request->id)->update(
+           [
+           "status" => 3
+       ]);
+
+       return redirect("/dashboard/documents");
+
     }
 
     /**
@@ -104,6 +124,7 @@ class DocumentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table("documents")->where("id",$id)->delete();
+        return view("dashboard.documents");
     }
 }

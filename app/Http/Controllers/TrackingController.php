@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TrackingController extends Controller
 {
@@ -32,9 +33,13 @@ class TrackingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function search(Request $request)
     {
-        //
+        $search = $request->cari;
+        $data = DB::table("kerjasama")->where("perihal","like","%".$search."%")->get();
+        $count = DB::table("kerjasama")->where("perihal","like","%".$search."%")->count();
+
+        return view("dashboard.tracking.result",["result" => $data,"count" => $count]);
     }
 
     /**

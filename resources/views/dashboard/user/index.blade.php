@@ -12,7 +12,7 @@
 
 <br>
 
-<table id="table_user">
+<table class="table table-striped table-bordered" id="table_submission" id="table_user">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -41,6 +41,8 @@
 			Unit Legal
 			@elseif($usr->role == 4)
 			Pimpinan
+			@elseif($usr->role == 5)
+			Tamu
 			@endif
 			</td>
 			<td>

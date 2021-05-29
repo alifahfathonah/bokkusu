@@ -1,57 +1,37 @@
 <!DOCTYPE html>
-<html>
-    <!--link library-->
-    <meta name="viewport" content="device=width-device, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<head>
-	<title>Login - Bokkusu</title>
-</head>
-<body>
-
-<div class="container">
-
-<div class="row d-flex justify-content-center">
-	<div class="col-md-7">
-	<div class="card mt-3">
-	<div class="card-body">
-	<img width="75px" height="75px" class="mx-auto d-block" src="../image/logobokkusu.png" alt="Logo Bokkusu">
-	<h2 class="title text-center mb-3">Bokkusu - Sign in</h2>
-		<form action="/auth/postlogin" method="POST">
-		@csrf
-		<div class="form-group">
-		<label>
-			Email
-		</label>
-		<br>
-		<input class="form-control" type="mail" name="email">
-		@error('email')
-		<span>{{$message}}</span>
-		@enderror
-		<br>
-		</div>
-		<div class="form-group">
-		<label>
-			Password
-		</label>
-		<br>
-		<input class="form-control" type="password" name="password">
-		@error('password')
-		<span>{{$message}}</span>
-		@enderror
-		<br>
-		</div>
-		<input class="btn btn-success" type="submit" name="login" value="login">
-		</form>	
-		<br>
-		Don't have a account? <a href="/auth/register">Sign Up</a>
-	</div>
-</div>
-		
-	</div>
-</div>
-
-
-</div>
-
-</body>
+<html lang="id" dir="ltr">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style2.css">
+    <meta charset="utf-8">
+    <title>Login - Bokkusu</title>
+  </head>
+  <body>
+    <div class="newsletter-container">
+      <div class="picture"></div>
+        <div class="login">
+          <img class="logo" src="../image/logobokkusu.png" alt="logo"><br><br>
+          <h1>Welcome to us</h1>
+                <form class="form" method="POST" action="/auth/postlogin">
+                  @csrf
+                  <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                  </div>
+                  <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <!-- <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div> -->
+                <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+          <p><br>don't have any account? please <a href="/auth/register">Sign-up</a></p>
+        </div>
+    </div>
+  </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

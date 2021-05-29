@@ -5,14 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class DashboardController extends Controller
+class LegalizationController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -20,13 +14,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $all = DB::table("kerjasama")->get();
-        $oll = DB::table("documents")->get();
-        $account = DB::table("users")->count();
-        $subs = DB::table("kerjasama")->count();
-        $documents = DB::table("documents")->count();
-        return view("dashboard.index",["acc" => $account,"subs" => $subs,
-        "docs" => $documents, "all" => $all, "oll" => $oll]);
+        return view("dashboard.legalization.index");
     }
 
     /**
@@ -34,7 +22,12 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function approved(Request $r)
+    {
+        //
+    }
+
+    public function disapproved(Request $r)
     {
         //
     }

@@ -67,7 +67,7 @@
 				</div>
 				<div class="form-group">
 					<label>
-						Role (1 - 4)
+						Role (0 - 4)
 					</label>
 					<input type="password" class="form-control" name="role" value="{{old('role') }}">
 					@error('role')

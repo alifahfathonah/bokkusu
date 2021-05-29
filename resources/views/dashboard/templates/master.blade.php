@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,17 +16,26 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light"><b>Bokkusu</b></div>
                 <div class="list-group list-group-flush">
-                    @if(Auth::user()->role == 1)
+                @if(Auth::user()->role == 5)
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
+                    @elseif(Auth::user()->role == 1)
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/submission">Submission</a>
+                    @elseif(Auth::user()->role == 3)
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking">Tracking</a>
+                    @elseif(Auth::user()->role == 4)
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking">Tracking</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/legalization">Legalization</a>
                     @else
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/user">User Management</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/user/create">Add User</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking">Tracking</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking_result">Tracking Result</a>
                     @endif
                 </div>
             </div>
@@ -39,10 +48,12 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="#!">Dashboard</a></li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    @if(Auth::user()->role == 1)
+                                    @if(Auth::user()->role == 5)
+                                    Tamu
+                                    @elseif(Auth::user()->role == 1)
                                     Unit Pelaksana
                                     @elseif(Auth::user()->role == 2)
                                     Unit Pengelola

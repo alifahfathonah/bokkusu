@@ -10,7 +10,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="/dashboard/submission/store" class="form" method="POST">
+        <form action="/dashboard/submission/store" class="form" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
             <label for="jenis dokumen">
@@ -24,6 +24,7 @@
             @else
             <option value="MOA">MOA</option>
             <option value="MOU">MOU</option>
+            <option value="LEGAL">LEGAL</option>
             @endif
             </select>
             </div>
@@ -69,6 +70,15 @@
             </label>
             <textarea class="form-control" name="implementasi" cols="30" rows="10">{{old('implementasi')}}</textarea>
             @error('implementasi')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+            </div>
+            <div class="form-group">
+            <label for="implementasi">
+               Dokumen
+            </label>
+           <input type="file" class="form-control" name="file">
+            @error('file')
             <span class="text-danger">{{$message}}</span>
             @enderror
             </div>

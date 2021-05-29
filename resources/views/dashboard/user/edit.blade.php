@@ -1,17 +1,26 @@
-@extends('dashboard.templates.master')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Edit User - Bokkusu</title>
+</head>
+<body>
 
-@section('title','Edit User')
-
-@section('content')
-
+<!-- Page content-->
+<div class="container">
 
 <h1>Edit data user</h1>
 
 <div class="card">
 		<div class="card-body">
-			@foreach($user as $usr)
 			<form class="form" action="/dashboard/user/update" method="POST">
 				@csrf
+				@foreach($user as $usr)
 				<input class="form-control" type="hidden" name="id" value="{{$usr->id}}">
 				<div class="form-group">
 					<label>
@@ -69,13 +78,18 @@
 				</div>
 				<br>
 				<input type="submit" class="btn btn-sm btn-success" name="add" value="add">
+				<a href="/dashboard/user" class="btn btn-sm btn-danger">
+				cancel
+				</a>
+				@endforeach
 			</form>
-			@endforeach
 		</div>
 </div>
 
-@section('script')
-<script src="../../js/scripts.js"></script>
-@endsection
+</div>
 
-@endsection
+
+    
+
+</body>
+</html>

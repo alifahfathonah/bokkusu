@@ -11,10 +11,13 @@ use App\Models\User;
 class AuthController extends Controller
 {
     /* ACCOUNT
-    u : tribudi123@gmail.com , p : tri123 (Unit Pelaksana)
-    u : awebsite84@gmail.com , p : admin123 (Unit Pengelola)
-    u : .... , p : .... (Unit Legal)
-    u : .... , p : .... (Pimpinan)
+    
+    u : tribudi123@gmail.com , p : tri123 (Unit Pelaksana -> dashboard, documents, submission)
+    u : awebsite84@gmail.com , p : admin123 (Unit Pengelola -> dashboard, documents, user manage, tracking)
+    u : guest1@gmail.com , p : guest123 (Tamu -> dashboard)
+    u : rektor1@gmail.com , p : rektor123 (Pimpinan -> dashboard, documents, user manage, tracking)
+    u : legal1@gmail.com , p : legal123 (Legal -> dashboard, documents, tracking)
+
     */
 
     /**
@@ -56,11 +59,11 @@ class AuthController extends Controller
         DB::table("users")->insert([
             "name" => $request->name,
             "email" => $request->email,
+            "role" => 5,
             "sex" => $request->sex,
             "institution" => $request->institution,
             "username" => $request->username,
-            "password" => Hash::make($request->password),
-            "role" => 1]);
+            "password" => Hash::make($request->password)]);
 
         return redirect("/auth/login");
     }
