@@ -34,27 +34,50 @@
     <b>rencana implementasi:</b> <br>
     {{$dt->rencana_implementasi}}
     </p>
-    <iframe src="{{ url('storage/file/'.$dt->files) }}" frameborder="0" width="400" height="300"></iframe>
+    <iframe src="{{ url('../file/'.$dt->files) }}" frameborder="0" width="400" height="300"></iframe>
     <br>
     <b>file:</b> <p class="text-justify">{{$dt->files}}</p>
     </div>
     <br>
     <b></b>
 
-@if(Auth::user()->role == 2 and 4)
-<form action="/dashboard/submission/approve" method="POST">
-@csrf
-<input type="hidden" name="id" value="{{$dt->id}}">
-<input type="submit" class="btn btn-sm btn-success" value="Setujui">
-</form>
+<div class="row">
 
-&nbsp;&nbsp;
-<form action="/dashboard/submission/disapprove" method="POST">
-@csrf
-<input type="hidden" name="id" value="{{$dt->id}}">
-<input type="submit" class="btn btn-sm btn-danger" value="Tolak">
-</form>
-@else
+    @if(Auth::user()->role == 2 and 4)
+    <div class="col">
+
+    <form action="/dashboard/submission/approve" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{$dt->id}}">
+    <input type="submit" class="btn btn-sm btn-success" value="Setujui">
+    </form>
+
+    &nbsp;&nbsp;
+    <form action="/dashboard/submission/disapprove" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{$dt->id}}">
+    <input type="submit" class="btn btn-sm btn-danger" value="Tolak">
+    </form>
+
+    &nbsp;&nbsp;
+    <form action="/dashboard/submission/revision" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{$dt->id}}">
+    <input type="submit" class="btn btn-sm btn-warning" value="Revisi">
+    </form>
+
+    <br>
+    
+    &nbsp;&nbsp;
+    <a href="/dashboard/submission" class="btn btn-sm btn-info mb-3">
+        Kembali
+    </a>
+
+    </div>
+    @else
+
+</div>
+
 &nbsp;&nbsp;
 <a href="/dashboard/submission" class="btn btn-sm btn-info mb-3">
     Kembali

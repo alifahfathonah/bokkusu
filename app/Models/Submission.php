@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Submission extends Model
 {
+    protected $table = "kerjasama";
     use HasFactory;
 }

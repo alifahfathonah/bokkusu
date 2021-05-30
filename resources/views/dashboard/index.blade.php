@@ -38,6 +38,7 @@
                     @else
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/submission">Submission</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/user">User Management</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking">Tracking</a>
                     @endif
@@ -183,12 +184,16 @@
                                 Disetujui
                                 </span>
                                 @elseif($dt->status == 2)
-                                <span class="badge bg-warning">
+                                <span class="badge bg-dark">
                                 Dalam Proses Review
                                 </span>
                                 @elseif($dt->status == 3)
                                 <span class="badge bg-danger">
                                 Ditolak
+                                </span>
+                                @elseif($dt->status == 4)
+                                <span class="badge bg-warning">
+                                Perlu Revisi
                                 </span>
                                 @endif
                                 </td>

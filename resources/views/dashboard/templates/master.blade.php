@@ -34,6 +34,7 @@
                     @else
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/submission">Submission</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/user">User Management</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking">Tracking</a>
                     @endif

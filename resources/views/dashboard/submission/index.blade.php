@@ -39,12 +39,16 @@ Create
                 Disetujui
                 </span>
                 @elseif($sb->status == 2)
-                <span class="badge bg-warning">
+                <span class="badge bg-dark">
                 Dalam Proses Review
                 </span>
                 @elseif($sb->status == 3)
                 <span class="badge bg-danger">
                 Ditolak
+                </span>
+                @elseif($sb->status == 4)
+                <span class="badge bg-warning">
+                Perlu Revisi
                 </span>
                 @endif
             </td>

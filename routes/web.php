@@ -39,6 +39,7 @@ Route::get("/dashboard/submission/delete/{id}","SubmissionController@destroy");
 Route::get("/dashboard/submission/edit/{id}","SubmissionController@edit");
 Route::post("/dashboard/submission/approve","SubmissionController@approved");
 Route::post("/dashboard/submission/disapprove","SubmissionController@disapproved");
+Route::post("/dashboard/submission/revision","SubmissionController@revision");
 
 /* end */
 

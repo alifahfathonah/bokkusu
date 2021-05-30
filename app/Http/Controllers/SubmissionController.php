@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
+use App\Models\Submission;
 
 class SubmissionController extends Controller
 {
@@ -31,6 +32,12 @@ dokumen kerjasama (proposal/surat penawaran) drop at here
 rgba 086499
 
 */
+
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -142,6 +149,22 @@ rgba 086499
 
        return redirect("/dashboard/submission");
 
+    }
+
+    public function revision(Request $request)
+    {
+       DB::table("kerjasama")->where("id",$request->id)->update(
+           [
+           "status" => 4
+       ]);
+
+       return redirect("/dashboard/submission");
+
+    }
+
+    public function report(Request $r)
+    {
+        //
     }
 
     /**
