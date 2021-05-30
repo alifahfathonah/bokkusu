@@ -94,6 +94,11 @@ class DocumentsController extends Controller
 
     }
 
+    public function report(Request $r)
+    {
+        //
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

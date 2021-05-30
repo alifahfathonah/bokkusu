@@ -12,7 +12,7 @@
 
 <br>
 
-<table class="table table-striped table-bordered" id="table_submission" id="table_user">
+<table class="table table-striped table-bordered" id="table_user">
 	<thead>
 		<tr>
 			<th>Name</th>

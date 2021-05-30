@@ -18,9 +18,9 @@
 
 <div class="card">
 		<div class="card-body">
+			@foreach($user as $usr)
 			<form class="form" action="/dashboard/user/update" method="POST">
 				@csrf
-				@foreach($user as $usr)
 				<input class="form-control" type="hidden" name="id" value="{{$usr->id}}">
 				<div class="form-group">
 					<label>
@@ -81,8 +81,8 @@
 				<a href="/dashboard/user" class="btn btn-sm btn-danger">
 				cancel
 				</a>
-				@endforeach
 			</form>
+			@endforeach
 		</div>
 </div>
 
