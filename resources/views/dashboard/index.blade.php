@@ -9,7 +9,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/sidebar.css" rel="stylesheet" />
         <!-- DataTables CSS -->
         <link rel="stylesheet" href="datatables.min.css" />
         <link rel="stylesheet" href="datatables.bootstrap.min.css" />
@@ -18,29 +18,36 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light"><b>Bokkusu</b></div>
-                <div class="list-group list-group-flush">
+                <div class="sidebar-heading border-bottom text-center border ms-3 my-3 w-50" id="logo"><b>Bokkusu</b></div>
+                <div class="list-group list-group-flush align-items-center">
                     @if(Auth::user()->role == 5)
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>
+                    <div class=""></div>
                     @elseif(Auth::user()->role == 1)
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/submission">Submission</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/documents">Documents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/submission">Submission</a>
+                    <div class=""></div>
                     @elseif(Auth::user()->role == 3)
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking">Tracking</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/documents">Documents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/submission">Submission</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/tracking">Tracking</a>
+                    <div class=""></div>
                     @elseif(Auth::user()->role == 4)
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking">Tracking</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/legalization">Legalization</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/documents">Documents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/tracking">Tracking</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/legalization">Legalization</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/legalization/report">Report</a>
+                    <div class=""></div>
                     @else
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/documents">Documents</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/submission">Submission</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/user">User Management</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/dashboard/tracking">Tracking</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/documents">Documents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/submission">Submission</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/user">User Management</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/tracking">Tracking</a>
+                    <div class=""></div>
                     @endif
                 </div>
             </div>
@@ -139,7 +146,7 @@
                         </div>
                         <div class="card-body">
                         <h4>
-                        0
+                        {{$partner}}
                         </h4>
                         </div>
                         </div>
@@ -160,6 +167,21 @@
                         </div>
                     </div>
 
+                    <div class="col-sm-3 mb-3">
+                        <div class="card bg-dark text-white">
+                        <div class="card-header">
+                        <h3>
+                        Pengesahan
+                        </h3>
+                        </div>
+                        <div class="card-body">
+                        <h4>
+                        {{$legal}}
+                        </h4>
+                        </div>
+                        </div>
+                    </div>
+
                 </div>
                     <br>
 
@@ -167,6 +189,8 @@
                     <table class="table table-striped table-bordered" id="table_submission">
                         <thead>
                             <tr>
+                                <th>Mitra</th>
+                                <th>Institusi Mitra</th>
                                 <th>Perihal</th>
                                 <th>Jenis Dokumen</th>
                                 <th>Status</th>
@@ -176,6 +200,20 @@
                         <tbody>
                         @foreach($all as $dt)
                             <tr>
+                                <td>
+                                @if($dt->mitra == "")
+                                None
+                                @else
+                                {{$dt->mitra}}
+                                @endif
+                                </td>
+                                <td>
+                                @if($dt->institusi_mitra == "")
+                                None
+                                @else
+                                {{$dt->institusi_mitra}}
+                                @endif
+                                </td>
                                 <td>{{$dt->perihal}}</td>
                                 <td>{{$dt->jenis_dokumen}}</td>
                                 <td>

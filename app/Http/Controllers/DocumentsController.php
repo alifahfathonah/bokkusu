@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
-use App\Models\Documents;
+use app\Models\Documents;
+use app\Models\Pengesahan;
 
 class DocumentsController extends Controller
 {
@@ -47,13 +48,28 @@ class DocumentsController extends Controller
             "doc" => "required|mimes:pdf,doc,docx"
         ]);
 
-        $files = $request->file('doc')->store("file","public");
+        $files = $request->file('doc')->store("file");
+        $proposal = $request->file('proposal')->store('file');
+        $mou = $request->file('mou')->store("file");
+        $moa = $request->file('moa')->store("file");
 
         // dd($files);
 
         DB::table('documents')->insert([
             "name" => $request->name,
+            "proposal" => $proposal,
             "doc" => $files,
+            "mou" => $mou,
+            "moa" => $moa,
+            "status" => 2
+        ]);
+
+        DB::table('pengesahan')->insert([
+            "name" => $request->name,
+            "proposal" => $proposal,
+            "doc" => $files,
+            "mou" => $mou,
+            "moa" => $moa,
             "status" => 2
         ]);
 
@@ -94,9 +110,46 @@ class DocumentsController extends Controller
 
     }
 
-    public function report(Request $r)
+    public function revision(Request $request)
     {
-        //
+       DB::table("documents")->where("id",$request->id)->update(
+           [
+           "status" => 4
+       ]);
+
+       return redirect("/dashboard/documents");
+
+    }
+
+    public function report($id)
+    {
+        $docs = Documents::findOrFail($id);
+
+        if(!empty($docs))
+        {
+            $newrecords = $docs->replicate();
+            $newrecords->setTable("pengesahan");
+            $newrecords->save();
+            return redirect("/dashboard/documents");
+        }else{
+            return redirect("/dashboard/documents");
+        }
+
+        // $oldrecords = Documents::query()->where("id",$id)->each(function ($oldrecords)
+        // {
+        //     $newrecords = $oldrecords->replicate();
+        //     $newrecords->setTable("pengesahan");
+        //     $newrecords->save();
+        // });
+
+        // find post with given ID 
+        // $docs = Documents::findOrFail($id); 
+        // get all Post attributes 
+        // $data = $docs->attributesToArray(); 
+        // remove name and price attributes 
+        // $data = array_except($data, ['name', 'price']); 
+        // create new Order based on Post's data 
+        // $pengesahan = Pengesahan::create($data);
     }
 
     /**
@@ -107,7 +160,8 @@ class DocumentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $documents = DB::table("documents")->where("id",$id)->get();
+        return view("dashboard.documents.edit",["documents" => $documents]);
     }
 
     /**
@@ -117,9 +171,39 @@ class DocumentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required|min:5",
+        ]);
+
+        $files = $request->file('doc')->store("file");
+        $proposal = $request->file('proposal')->store('file');
+        $mou = $request->file('mou')->store("file");
+        $moa = $request->file('moa')->store("file");
+
+        // dd($files);
+
+        DB::table('documents')->where("id",$request->id)->update([
+            "name" => $request->name,
+            "proposal" => $proposal,
+            "doc" => $files,
+            "mou" => $mou,
+            "moa" => $moa,
+            "status" => $request->status
+        ]);
+
+        DB::table('pengesahan')->where("id",$request->id)->update([
+            "name" => $request->name,
+            "proposal" => $proposal,
+            "doc" => $files,
+            "mou" => $mou,
+            "moa" => $moa,
+            "status" => $request->status
+        ]);
+
+        return redirect("/dashboard/documents");
+
     }
 
     /**
@@ -131,6 +215,6 @@ class DocumentsController extends Controller
     public function destroy($id)
     {
         DB::table("documents")->where("id",$id)->delete();
-        return view("dashboard.documents");
+        return view("dashboard.documents.index");
     }
 }

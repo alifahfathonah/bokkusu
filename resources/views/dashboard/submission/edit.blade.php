@@ -25,6 +25,54 @@ Edit Submission
         <form action="/dashboard/submission/update" class="form" method="POST">
         @csrf
             <input class="form-control" type="hidden" name="id" value="{{$dt->id}}">
+            
+            <h2>Detail Mitra Kerjasama:</h2>
+
+            <div class="form-group mb-3">
+            <label for="Mitra" class="label">
+            Nama Mitra:
+            </label>
+            <input type="text" class="form-control" name="mitra" value="{{$dt->mitra}}">
+            @error('mitra')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+            </div>
+            <br>
+            <div class="form-group mb-3">
+            <label for="Institusi Mitra" class="label">
+            Institusi Mitra:
+            </label>
+            <input type="text" class="form-control" name="institusi_mitra" value="{{$dt->institusi_mitra}}">
+            @error('institusi_mitra')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+            </div>
+            <br>
+            <div class="form-group mb-3">
+            <label for="Jabatan Mitra" class="label">
+            Jabatan Mitra dalam Instansi:
+            </label>
+            <input type="text" class="form-control" name="jabatan_mitra" value="{{$dt->jabatan_mitra}}">
+            @error('jabatan_mitra')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+            </div>
+            <br>
+            <div class="form-group mb-3">
+            <label for="Jenis Instansi" class="label">
+            Jenis Instansi:
+            </label>
+            <input type="text" class="form-control" name="jenis_instansi" value="{{$dt->jenis_instansi}}">
+            @error('jenis_instansi')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+            </div>
+            <br>
+
+            <hr>
+
+            <h2>Detail Informasi Kerjasama:</h2>
+
             <div class="form-group">
             <label for="perihal">
                 Perihal
@@ -39,7 +87,7 @@ Edit Submission
                 Jenis Dokumen:
             </label>
             <br>
-            <select type="form-control" name="jenis_dokumen">
+            <select type="form-select" name="jenis_dokumen">
             <option selected disabled>--CHOOSE DOCUMENT--</option>
             @if(Auth::user()->role == 1)
             <option value="PROPOSAL">PROPOSAL</option>
@@ -90,6 +138,12 @@ Edit Submission
                Status
             </label>
             <input type="number" name="status" class="form-control" value="{{$dt->status}}">
+            @error('status')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+            </div>
+            <br>
+            <input type="file" name="file" class="form-control" value="{{$dt->files}}">
             @error('status')
             <span class="text-danger">{{$message}}</span>
             @enderror

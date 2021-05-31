@@ -20,7 +20,8 @@ class LegalizationController extends Controller
      */
     public function index()
     {
-        return view("dashboard.legalization.index");
+        $data = DB::table("pengesahan")->get();
+        return view("dashboard.legalization.index",["data" => $data]);
     }
 
     /**
@@ -30,24 +31,29 @@ class LegalizationController extends Controller
      */
     public function approved(Request $r)
     {
-        //
+        DB::table("pengesahan")->where("id",$r->id)->update(
+            [
+            "status" => 1
+        ]);
+ 
+        return redirect("/dashboard/legalization");
     }
 
-    public function disapproved(Request $r)
+    public function revision(Request $r)
     {
-        //
+        DB::table("pengesahan")->where("id",$r->id)->update(
+            [
+            "status" => 4
+        ]);
+ 
+        return redirect("/dashboard/legalization");
     }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -57,7 +63,13 @@ class LegalizationController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table("pengesahan")->where("id",$id)->get();
+        return view("dashboard.legalization.view",["data" => $data]);
+    }
+
+    public function report()
+    {
+        return view("dashboard.legalization.report");
     }
 
     /**

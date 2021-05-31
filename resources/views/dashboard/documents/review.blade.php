@@ -25,6 +25,8 @@
                 Proses Review
                 @elseif($dt->status == 3)
                 Ditolak
+                @elseif($dt->status == 4)
+                Perlu Revisi
                 @endif
     </span>
     <h1>
@@ -32,8 +34,17 @@
     </h1>
     </div>
     <div class="card-body">
+    <h2>Legal Document:</h2>
     <br>
-    <iframe src="../../storage/public/file/{{$dt->doc}}" frameborder="0" width="400" height="300"></iframe>
+    <iframe src="{{ url('../../file/'.$dt->doc) }}" frameborder="0" width="500" height="500"></iframe>
+    
+    <h2>MOA Document:</h2>
+    <br>
+    <iframe src="{{ url('../../file/'.$dt->moa) }}" frameborder="0" width="500" height="500"></iframe>
+    
+    <h2>MOU Document:</h2>
+    <br>
+    <iframe src="{{ url('../../file/'.$dt->mou) }}" frameborder="0" width="500" height="500"></iframe>
     </div>
 
 <form action="/dashboard/documents/approve" method="POST">
@@ -47,6 +58,13 @@
 @csrf
 <input type="hidden" name="id" value="{{$dt->id}}">
 <input type="submit" class="btn btn-sm btn-danger" value="Tolak">
+</form>
+
+&nbsp;&nbsp;
+<form action="/dashboard/documents/revision" method="POST">
+@csrf
+<input type="hidden" name="id" value="{{$dt->id}}">
+<input type="submit" class="btn btn-sm btn-warning" value="Revisi">
 </form>
 
 &nbsp;&nbsp;

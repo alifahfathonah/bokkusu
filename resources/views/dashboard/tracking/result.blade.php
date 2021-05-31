@@ -24,12 +24,16 @@
                                 Disetujui
                                 </span>
                                 @elseif($rs->status == 2)
-                                <span class="badge bg-warning">
+                                <span class="badge bg-dark">
                                 Dalam Proses Review
                                 </span>
                                 @elseif($rs->status == 3)
                                 <span class="badge bg-danger">
                                 Ditolak
+                                </span>
+                                @elseif($rs->status == 4)
+                                <span class="badge bg-warning">
+                                Perlu Revisi
                                 </span>
                                 @endif
                 &nbsp;&nbsp;

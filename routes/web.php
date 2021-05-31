@@ -49,9 +49,13 @@ Route::get("/dashboard/documents","DocumentsController@index");
 Route::get("/dashboard/documents/create","DocumentsController@create");
 Route::post("/dashboard/documents/store","DocumentsController@store");
 Route::get("/dashboard/documents/delete/{id}","DocumentsController@destroy");
+Route::get("/dashboard/documents/edit/{id}","DocumentsController@edit");
+Route::post("/dashboard/documents/update","DocumentsController@update");
 Route::get("/dashboard/documents/review/{id}","DocumentsController@show");
 Route::post("/dashboard/documents/approve","DocumentsController@approved");
 Route::post("/dashboard/documents/disapprove","DocumentsController@disapproved");
+Route::post("/dashboard/documents/revision","DocumentsController@revision");
+// Route::get("/dashboard/documents/handover/{id}","DocumentsController@report");
 
 /* end */
 
@@ -67,6 +71,8 @@ Route::get("/dashboard/tracking/search","TrackingController@search");
 
 Route::get("/dashboard/legalization","LegalizationController@index");
 Route::post("/dashboard/legalization/approve","LegalizationController@approved");
-Route::post("/dashboard/legalization/disapprove","LegalizationController@disapproved");
+Route::post("/dashboard/legalization/revision","LegalizationController@revision");
+Route::get("/dashboard/legalization/view/{id}","LegalizationController@show");
+Route::get("/dashboard/legalization/report","LegalizationController@report");
 
 /* end */

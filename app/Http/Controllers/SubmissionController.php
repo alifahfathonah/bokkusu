@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Submission;
 
 class SubmissionController extends Controller
@@ -74,6 +75,10 @@ rgba 086499
     public function store(Request $r)
     {
         $r->validate([
+            "mitra" => "required",
+            "institusi_mitra" => "required",
+            "jabatan_mitra" => "required",
+            "jenis_instansi" => "required",
             "jenis_dokumen" => "required",
             "perihal" => "required",
             "durasi" => "required",
@@ -88,10 +93,14 @@ rgba 086499
          ->join("documents","kerjasama.id_doc","=","documents.id")
          ->select("")->get(); */
 
-        $file = $r->file("file")->store("file","public");
+        $file = $r->file("file")->store("file");
 
         DB::table("kerjasama")->insert([
             // "id_doc" => $doc[1]->kerjasama_id,
+            "mitra" => $r->mitra,
+            "institusi_mitra" => $r->institusi_mitra,
+            "jabatan_mitra" => $r->jabatan_mitra,
+            "jenis_institusi" => $r->jenis_institusi,
             "jenis_dokumen" => $r->jenis_dokumen,
             "perihal" => $r->perihal,
             "durasi" => $r->durasi,
@@ -162,9 +171,16 @@ rgba 086499
 
     }
 
-    public function report(Request $r)
+    public function report()
     {
-        //
+        // $oldrecords = Submission::query()->where("status","=",1)->get();
+        // $newrecords = $oldrecords->replicate();
+        // $newrecords->setTable("pengesahan");
+        // $newrecords->save();
+
+        // $oldrecords->delete();
+
+        // return redirect("/dashboard/documents");
     }
 
     /**
@@ -177,6 +193,10 @@ rgba 086499
     public function update(Request $r)
     {
         $r->validate([
+            "mitra" => "required",
+            "institusi_mitra" => "required",
+            "jabatan_mitra" => "required",
+            "jenis_instansi" => "required",
             "jenis_dokumen" => "required",
             "perihal" => "required",
             "durasi" => "required",
@@ -187,6 +207,10 @@ rgba 086499
 
 
         DB::table("kerjasama")->where("id",$r->id)->update([
+            "mitra" => $r->mitra,
+            "institusi_mitra" => $r->institusi_mitra,
+            "jabatan_mitra" => $r->jabatan_mitra,
+            "jenis_instansi" => $r->jenis_instansi,
             "jenis_dokumen" => $r->jenis_dokumen,
             "perihal" => $r->perihal,
             "durasi" => $r->durasi,

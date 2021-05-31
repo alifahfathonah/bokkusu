@@ -13,28 +13,52 @@
 
 <div class="container">
 
-<h1>Review Submission - Bokkusu</h1>
+<h1 class="font-weight-bold">Review Submission - Bokkusu</h1>
 
 @foreach($data as $dt)
 <div class="card">
     <div class="card-header">
-    <span>{{$dt->jenis_dokumen}}</span>
+    <span><b>{{$dt->jenis_dokumen}}</b></span>
     <h1>
     {{$dt->perihal}}
     </h1>
-    <small>{{$dt->durasi}} days</small>
+    <small><b>{{$dt->durasi}} days</b></small>
     </div>
     <div class="card-body">
+    <h2 class="font-weight-bold">Detail Mitra:</h2>
+
     <p class="text-justify">
-    <b>deskripsi:</b> <br>
+    <h3>Mitra:</h3>
+    {{$dt->mitra}}
+    </p>
+
+    <p class="text-justify">
+    <h3>Institusi Mitra:</h3>
+    {{$dt->institusi_mitra}}
+    </p>
+
+    <p class="text-justify">
+    <h3>Jabatan Mitra:</h3>
+    {{$dt->jabatan_mitra}}
+    </p>
+
+    <p class="text-justify">
+    <h3>Jenis Instansi:</h3>
+    {{$dt->jenis_instansi}}
+    </p>
+
+    <hr>
+
+    <h2 class="font-weight-bold">Detail Informasi Kerjasama:</h2>
+    <p class="text-justify">
+    <h3>Deskripsi:</h3>
     {{$dt->deskripsi}}
     </p>
-    <br>
     <p class="text-justify">
-    <b>rencana implementasi:</b> <br>
+    <h3>Rencana implementasi:</h3>
     {{$dt->rencana_implementasi}}
     </p>
-    <iframe src="{{ url('../file/'.$dt->files) }}" frameborder="0" width="400" height="300"></iframe>
+    <iframe src="{{ url('../file/'.$dt->files) }}" frameborder="0" width="600" height="600"></iframe>
     <br>
     <b>file:</b> <p class="text-justify">{{$dt->files}}</p>
     </div>

@@ -20,13 +20,15 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $pengesahan = DB::table("pengesahan")->where("status","=",1)->count();
         $all = DB::table("kerjasama")->get();
         $oll = DB::table("documents")->get();
+        $partner = DB::table("kerjasama")->where("institusi_mitra","institusi_mitra")->count();
         $account = DB::table("users")->count();
         $subs = DB::table("kerjasama")->count();
         $documents = DB::table("documents")->count();
         return view("dashboard.index",["acc" => $account,"subs" => $subs,
-        "docs" => $documents, "all" => $all, "oll" => $oll]);
+        "docs" => $documents, "all" => $all, "oll" => $oll, "partner" => $partner,"legal" => $pengesahan]);
     }
 
     /**

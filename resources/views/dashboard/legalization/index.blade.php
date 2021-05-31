@@ -10,23 +10,28 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>File</th>
-            <th>Type</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
+    @foreach($data as $dt)
         <tr>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
+            <td>{{$dt->name}}</td>
             <td>
-                <a class="btn btn-sm btn-danger" href="#">Delete</a>
-                <a class="btn btn-sm btn-info" href="#">View</a>
+            @if($dt->status == 1)
+            Disahkan
+            @elseif($dt->status == 2)
+            Proses Review
+            @elseif($dt->status == 4)
+            Perlu Revisi
+            @endif
+            </td>
+            <td>
+                <a class="btn btn-sm btn-info" href="/dashboard/legalization/view/{{$dt->id}}">View</a>
             </td>
         </tr>
+    @endforeach
     </tbody>
 </table>
 

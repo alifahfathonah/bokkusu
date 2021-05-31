@@ -4,7 +4,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/register.css">
     <meta charset="utf-8">
-    <title>Register - Bokkusu</title>
+    <title>Sign up - Bokkusu</title>
   </head>
   <body>
     <div class="newsletter-container">
@@ -44,7 +44,7 @@
         <br>
           <button id="button-sign-up" type="submit" class="btn btn-primary">Sign-up</button>
         </form>
-          <p><br>already have any account? please <a href="/auth/login">Login</a></p>
+          <p><br>already have any account? please <a href="/auth/login">Sign-in</a></p>
         </div>
     </div>
   </body>

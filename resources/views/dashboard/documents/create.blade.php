@@ -19,16 +19,34 @@
                 <input name="name" type="text" class="form-control">
             </div>
             <div class="form-group">
-            <label for="name">
-                Document file
+            <label for="legal">
+               Proposal Document file
+            </label>
+                <input name="proposal" type="file" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="legal">
+                Legal Document file
             </label>
                 <input name="doc" type="file" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="moa">
+                MOA Document file
+            </label>
+                <input name="moa" type="file" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="mou">
+                MOU Document file
+            </label>
+                <input name="mou" type="file" class="form-control">
             </div>
             <br>
             <button type="submit" class="btn btn-success">
             SUBMIT
             </button>
-            <a href="/dashboard/submission" class="btn btn-danger">
+            <a href="/dashboard/documents" class="btn btn-danger">
             CANCEL
             </a>
         </form>
