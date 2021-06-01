@@ -27,11 +27,13 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/documents">Documents</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/submission">Submission</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/news">News</a>
                     <div class=""></div>
                     @elseif(Auth::user()->role == 3)
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/documents">Documents</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/submission">Submission</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/news">News</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/tracking">Tracking</a>
                     <div class=""></div>
                     @elseif(Auth::user()->role == 4)
@@ -45,6 +47,7 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/documents">Documents</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/submission">Submission</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/news">News</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/user">User Management</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard/tracking">Tracking</a>
                     <div class=""></div>

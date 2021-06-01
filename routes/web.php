@@ -76,3 +76,10 @@ Route::get("/dashboard/legalization/view/{id}","LegalizationController@show");
 Route::get("/dashboard/legalization/report","LegalizationController@report");
 
 /* end */
+
+/* News Route Dashboard */
+
+Route::get("/dashboard/news","NewsController@index");
+Route::get("/dashboard/news/create","NewsController@create");
+
+/* end */
