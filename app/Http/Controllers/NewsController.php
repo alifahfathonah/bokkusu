@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
@@ -13,7 +14,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view("dashboard.news.index");
+        $data = DB::table("news")->get();
+        return view("dashboard.news.index",["news" => $data]);
     }
 
     /**
@@ -34,7 +36,23 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+            "title" => "required",
+            "description" => "required"
+            ]
+         );
+
+        $thumb = $request->file("thumb")->store("thumbnails");
+
+        DB::table("news")->insert(
+            [
+                "title" => $request->title,
+                "thumbnail" => $thumb,
+                "description" => $request->description
+            ]
+            );
+        return redirect("/dashboard/news");
     }
 
     /**
@@ -79,6 +97,7 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table("news")->where("id",$id)->delete();
+        return redirect("/dashboard/news");
     }
 }

@@ -81,5 +81,7 @@ Route::get("/dashboard/legalization/report","LegalizationController@report");
 
 Route::get("/dashboard/news","NewsController@index");
 Route::get("/dashboard/news/create","NewsController@create");
+Route::post("/dashboard/news/store","NewsController@store");
+Route::get("/dashboard/news/delete/{id}","NewsController@destroy");
 
 /* end */

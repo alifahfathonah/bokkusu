@@ -10,7 +10,13 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="#" class="form" method="POST">
+        <form action="/dashboard/news/store" class="form" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title" class="label">
+                    Thumbnail Image:
+                </label>
+                <input type="file" class="form-control" name="thumb">
+            </div>
             <div class="form-group">
                 <label for="title" class="label">
                     Title:
