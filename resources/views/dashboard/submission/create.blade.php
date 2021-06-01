@@ -57,6 +57,7 @@
             <option selected disabled>--CHOOSE DOCUMENT--</option>
             @if(Auth::user()->role == 1)
             <option value="PROPOSAL">PROPOSAL</option>
+            <option value="MOU">MOU</option>
             @else
             <option value="PROPOSAL">PROPOSAL</option>
             <option value="MOA dan MOU">MOA & MOU</option>

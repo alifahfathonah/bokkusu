@@ -9,4 +9,9 @@ class Documents extends Model
 {
     protected $table = "documents";
     use HasFactory;
+
+    public function submission()
+    {
+        return $this->belongsTo(Submission::class);
+    }
 }
