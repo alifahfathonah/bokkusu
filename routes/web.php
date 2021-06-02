@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /* Home Route */
 Route::get("/","HomeController@index");
+Route::get("/news","HomeController@news");
 /* end */
 
 /* Auth & Dashboard Route */

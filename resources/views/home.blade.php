@@ -27,7 +27,8 @@
     <div class="content">
   <h1>Welcome to Bokkusu</h1>
   <div class="d-flex justify-content-center">
-<a href="/auth/login" class="btn btn-outline-dark">Get Started</a>
+<a href="/auth/login" class="btn btn-outline-dark mr-3">Get Started</a>
+<a href="/news" class="btn btn-outline-dark ml-3">News</a>
   </div>
 </div>
 </div>
