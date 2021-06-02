@@ -12,12 +12,12 @@ Aplikasi Website ini menggunakan Laravel sebagai backendnya dan Bootstrap sebaga
 
 ## Screenshot
 
-![homepage]("https://github.com/ihzarizkyk/bokkusu/blob/main/screenshoot/homepage.png")
+![homepage](https://github.com/ihzarizkyk/bokkusu/blob/main/screenshoot/homepage.png)
 
 
-![loginpage]("https://github.com/ihzarizkyk/bokkusu/blob/main/screenshoot/login.png")
+![loginpage](https://github.com/ihzarizkyk/bokkusu/blob/main/screenshoot/login.png)
 
 
-![dashboard]("https://github.com/ihzarizkyk/bokkusu/blob/main/screenshoot/dashboard.png")
+![dashboard](https://github.com/ihzarizkyk/bokkusu/blob/main/screenshoot/dashboard.png)
 
 &copy; 2021
