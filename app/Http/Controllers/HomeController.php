@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,8 @@ class HomeController extends Controller
 
     public function news()
     {
-        return view("news.index");
+        $data = DB::table("news")->get();
+        return view("news.index",["news" => $data]);
     }
 
     /**
@@ -48,9 +50,10 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $data = DB::table("news")->where("slug",$slug)->get();
+        return view("news.read",["news" => $data]);
     }
 
     /**

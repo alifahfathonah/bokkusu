@@ -11,6 +11,7 @@
 <div class="card">
     <div class="card-body">
         <form action="/dashboard/news/store" class="form" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
                 <label for="title" class="label">
                     Thumbnail Image:
@@ -27,14 +28,23 @@
                 <label for="body" class="label">
                     Description:
                 </label>
-                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
             </div>
             <br>
             <input type="submit" class="btn btn-md btn-success" value="Create">
-            <input type="resett" class="btn btn-md btn-warning" value="Reset">
+            <input type="reset" class="btn btn-md btn-warning" value="Reset">
             <a class="btn btn-md btn-danger" href="/dashboard/news">
             Cancel
             </a>
         </form>
     </div>
 </div>
+
+@section('script')
+<script src="../../js/scripts.js"></script>
+<script>
+    $('.dropdown-toggle').dropdown();
+</script>
+@endsection
+
+@endsection

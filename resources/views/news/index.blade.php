@@ -36,39 +36,23 @@
 <div class="news">
   <div class="inner-width">
     <div class="content">
-<h1>News</h1>
-      <div class="row align-items-center">
-          <div class="col">
+        <h1>News</h1>
+           <div class="row align-items-center">
+
+          @foreach($news as $data)
+          <div class="col-md-4 mb-4 p-2 pr-3">
             <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="n1.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Kucing imut</h5>
-    <p class="card-text">kucing imut sedang minta di manja ea ea.</p>
-    <a href="#" class="btn btn-primary" id="button-news">Go somewhere</a>
-  </div>
-</div>
+            <img class="card-img-top" src="{{ url('file/'.$data->thumbnail) }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{$data->title}}</h5>
+              <p class="card-text">{{$data->description}}</p>
+              <a href="/news/read/{{$data->slug}}" class="btn btn-primary" id="button-news">Read More</a>
+            </div>
           </div>
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="n2.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">DIJUAL!!</h5>
-    <p class="card-text">Dijual kursi stephen hawking seharga 80 dolar.</p>
-    <a href="#" class="btn btn-primary" id="button-news">Go somewhere</a>
-  </div>
-</div>
           </div>
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="n3.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Tetap santuy</h5>
-    <p class="card-text">meski kecelakaan bapak-bapak ini tetap santuy.</p>
-    <a href="#" class="btn btn-primary" id="button-news">Go somewhere</a>
-  </div>
-</div>
-          </div>
-        </div>
+          @endforeach
+
+            </div>
 
 </div>
 </div>

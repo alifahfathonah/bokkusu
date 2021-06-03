@@ -15,27 +15,25 @@ Create
     <thead>
         <tr>
         <th>Title</th>
-        <th>Category</th>
-        <th>Created_at</th>
-        <th>Updated_at</th>
+        <th>Slug</th>
         <th>Action</th>
         </tr>
     </thead>
     <tbody>
+        @foreach($news as $data)
         <tr>
-        <td>###</td>
-        <td>###</td>
-        <td>###</td>
-        <td>###</td>
+        <td>{{$data->title}}</td>
+        <td>{{$data->slug}}</td>
         <td>
             <a href="#" class="btn btn-sm btn-info">
             Edit
             </a>
-            <a href="#" class="btn btn-sm btn-danger">
+            <a href="/dashboard/news/delete/{{$data->id}}" class="btn btn-sm btn-danger">
             Delete
             </a>
         </td>
         </tr>
+        @endforeach
     </tbody>
 </table>
 

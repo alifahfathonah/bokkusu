@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 /* Home Route */
 Route::get("/","HomeController@index");
 Route::get("/news","HomeController@news");
+Route::get("/news/read/{slug}","HomeController@show");
 /* end */
 
 /* Auth & Dashboard Route */

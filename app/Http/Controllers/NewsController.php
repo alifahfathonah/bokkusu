@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +45,8 @@ class NewsController extends Controller
         $request->validate(
             [
             "title" => "required",
-            "description" => "required"
+            "description" => "required",
+            "thumb" => "required"
             ]
          );
 
@@ -48,6 +55,7 @@ class NewsController extends Controller
         DB::table("news")->insert(
             [
                 "title" => $request->title,
+                "slug" => Str::slug($request->title,"-"),
                 "thumbnail" => $thumb,
                 "description" => $request->description
             ]
