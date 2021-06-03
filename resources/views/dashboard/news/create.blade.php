@@ -5,7 +5,7 @@
 @section('content')
 
 <h1>
-    Create News - Bokkusu
+    Create News - Sikers
 </h1>
 
 <div class="card">

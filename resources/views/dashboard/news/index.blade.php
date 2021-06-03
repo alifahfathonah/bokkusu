@@ -9,7 +9,7 @@ Create
 </a>
 &nbsp;
 
-<h1>News - Bokkusu</h1>
+<h1>News - Sikers</h1>
 
 <table class="table table-striped table-bordered" id="table_news">
     <thead>

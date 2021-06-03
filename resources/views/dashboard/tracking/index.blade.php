@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Tracking - Bokkusu</h1>
+<h1>Tracking - Sikers</h1>
 
 <div class="row">
 <div class="col-md-6">

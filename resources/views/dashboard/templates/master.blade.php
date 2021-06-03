@@ -10,13 +10,13 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="../../datatables.min.css" />
     <link rel="stylesheet" href="../../datatables.bootstrap.min.css" />
-    <title>@yield('title') - Bokkusu</title>
+    <title>@yield('title') - Sikers</title>
 </head>
 <body>
 <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom text-center border ms-3 my-3 w-50" id="logo"><b>Bokkusu</b></div>
+                <div class="sidebar-heading border-bottom text-center border ms-3 my-3 w-50" id="logo"><b>Sikers</b></div>
                 <div class="list-group list-group-flush align-items-center">
                 @if(Auth::user()->role == 5)
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>

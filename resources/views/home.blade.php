@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <title>Bokkusu</title>
+    <title>Sikers</title>
     <link rel="stylesheet" href="css/style1.css">
   </head>
   <body>
     <div class="collapse" id="navbarToggleExternalContent">
   <div class="bg-dark p-4">
-    <h5 class="text-white h4">Bokkusu content</h5>
+    <h5 class="text-white h4">Sikers content</h5>
     <span class="text-muted">Toggleable via the navbar brand Bokkusu</span>
   </div>
 </div>
@@ -25,7 +25,7 @@
 <div class="homepage">
   <div class="inner-width">
     <div class="content">
-  <h1>Welcome to Bokkusu</h1>
+  <h1>Welcome to Sikers</h1>
   <div class="d-flex justify-content-center">
 <a href="/auth/login" class="btn btn-outline-dark mr-3">Get Started</a>
 <a href="/news" class="btn btn-outline-dark ml-3">News</a>
@@ -36,7 +36,7 @@
 <div class="about-us">
 
   <h1>About us</h1>
-  <p>Kita adalah aplikasi yang membantu anda <br>
+  <p>Sikers (Sistem Informasi Kerjasama) adalah aplikasi yang membantu anda <br>
 dalam kerjasama antar institusi, organisasi, dll</p>
 
 </div>

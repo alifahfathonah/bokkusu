@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1 class="">Report Legalization - Bokkusu</h1>
+<h1 class="">Report Legalization - Sikers</h1>
 <p class="text-justify">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
     Cumque eveniet aut quo expedita laudantium ea incidunt repellat 

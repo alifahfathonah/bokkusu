@@ -4,14 +4,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/register.css">
     <meta charset="utf-8">
-    <title>Sign up - Bokkusu</title>
+    <title>Sign up - Sikers</title>
   </head>
   <body>
     <div class="newsletter-container">
       <div class="picture"></div>
         <div class="login">
-          <img src="../image/logobokkusu.png" alt="logo"><br><br>
-          <h1>Welcome to us</h1>
+          <img src="../image/sikers-logo.png" alt="logo"><br><br>
+          <h1>Welcome to Sikers</h1>
           <form class="form" action="/auth/postregister" method="POST">
             @csrf
             <div class="mb-3">

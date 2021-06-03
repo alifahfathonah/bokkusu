@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Documents - Bokkusu</h1>
+<h1>Documents - Sikers</h1>
 
 <a class="btn btn-success mb-3" href="/dashboard/documents/create">
     Create Document

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Dashboard Bokkusu" />
         <meta name="author" content="" />
-        <title>Dashboard - Bokkusu</title>
+        <title>Dashboard - Sikers</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -18,7 +18,7 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom text-center border ms-3 my-3 w-50" id="logo"><b>Bokkusu</b></div>
+                <div class="sidebar-heading border-bottom text-center border ms-3 my-3 w-50" id="logo"><b>Sikers</b></div>
                 <div class="list-group list-group-flush align-items-center">
                     @if(Auth::user()->role == 5)
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 my-3 w-75" href="/dashboard">Dashboard</a>

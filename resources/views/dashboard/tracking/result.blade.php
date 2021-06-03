@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Tracking Result - Bokkusu</h1>
+<h1>Tracking Result - Sikers</h1>
 
 <div class="card">
     <div class="card-body">

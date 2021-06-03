@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Legalization - Bokkusu</h1>
+<h1>Legalization - Sikers</h1>
 
 <table class="table table-striped table-bordered" id="table_legal">
     <thead>

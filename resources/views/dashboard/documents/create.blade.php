@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Create Documents - Bokkusu</h1>
+<h1>Create Documents - Sikers</h1>
 
 <br>
 

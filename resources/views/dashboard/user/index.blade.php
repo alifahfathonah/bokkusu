@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>User - Bokkusu</h1>
+<h1>User - Sikers</h1>
 
 <a class="btn btn-primary mb-3" href="/dashboard/user/create">
 	Create User

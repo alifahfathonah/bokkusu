@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>Review Legalization - Bokkusu</title>
+    <title>Review Legalization - Sikers</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 
 <div class="container">
 
-<h1>Edit Documents - Bokkusu</h1>
+<h1>Edit Documents - Sikers</h1>
 
 <div class="card">
     <div class="card-body">
