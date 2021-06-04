@@ -185,6 +185,21 @@
                         </div>
                     </div>
 
+                    <div class="col-sm-3 mb-3">
+                        <div class="card bg-info text-white">
+                        <div class="card-header">
+                        <h3>
+                        Berita
+                        </h3>
+                        </div>
+                        <div class="card-body">
+                        <h4>
+                        {{$berita}}
+                        </h4>
+                        </div>
+                        </div>
+                    </div>
+
                 </div>
                     <br>
 

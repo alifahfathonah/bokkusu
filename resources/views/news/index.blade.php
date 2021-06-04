@@ -45,7 +45,7 @@
             <img class="card-img-top" src="{{ url('file/'.$data->thumbnail) }}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{$data->title}}</h5>
-              <p class="card-text">{{$data->description}}</p>
+              <p class="card-text">{!!$data->description!!}</p>
               <a href="/news/read/{{$data->slug}}" class="btn btn-primary" id="button-news">Read More</a>
             </div>
           </div>
